@@ -2,8 +2,7 @@
 // Name        : Playground1.cpp
 // Author      :
 // Version     :
-// Copyright   : Your copyright notice
-// Description : Here we play around with the POSIX functionality... enjoy !
+// Description : Here we play around with the POSIX thread functionality... enjoy !
 //============================================================================
 
 #include <stdio.h>
@@ -18,6 +17,12 @@ int main()
      const char *message1 = "Thread 1";
      const char *message2 = "Thread 2";
      int  iret1, iret2;
+
+     /*
+      * create custom attribute list for thread creation
+      */
+
+     pthread_attr_t pat ={};
 
     /* Create independent threads each of which will execute function */
 

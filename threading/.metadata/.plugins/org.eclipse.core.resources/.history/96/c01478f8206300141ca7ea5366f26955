@@ -1,0 +1,32 @@
+/*
+ * ThreadSafeResourceAccess.cpp
+ *
+ *  Created on: Nov 4, 2014
+ *      Author: ErnieOnTheRun
+ */
+
+#include <iostream>
+#include <string>
+
+#include <boost/thread/thread.hpp>
+
+template<typename T>
+	class Queue {
+
+	public:
+	Queue() {};
+	~Queue() {};
+
+
+
+};
+
+int main(){
+
+boost::thread myThread(threadFun);
+
+boost::thread::yield();
+
+myThread.join();
+
+}

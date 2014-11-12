@@ -1,0 +1,6 @@
+02:56:04 **** Clean-only build of configuration cond for project PosixThreadTest ****
+make clean 
+rm -f obj/cond1.o bin/cond1
+
+02:56:04 Build Finished (took 298ms)
+

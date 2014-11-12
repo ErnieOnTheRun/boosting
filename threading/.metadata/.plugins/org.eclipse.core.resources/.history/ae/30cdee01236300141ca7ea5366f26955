@@ -1,0 +1,89 @@
+/*
+ * ThreadSafeResourceAccess.cpp
+ *
+ *  Created on: Nov 4, 2014
+ *      Author: ErnieOnTheRun
+ */
+
+#include <iostream>
+#include <string>
+
+#include <boost/thread/thread.hpp>
+
+template<typename T>
+	class Queue {
+
+	public:
+	Queue() {};
+	~Queue() {};
+/*
+ * add an element x to the queue
+ */
+	void enqueue (const T& x){
+
+		boost::mutex::scoped_lock(mutex_);
+		list_.push_back(x);
+	}
+
+	T dequeue (){
+
+		boost::mutex::scoped_lock(mutex_);
+
+		if (list_.empty())
+			throw "empty !";
+
+		T tmp = list_.front();
+		list_.pop_front();
+
+		return (tmp);
+
+	}
+
+
+	private:
+		std::list<T> list_;
+		boost::mutex mutex_
+
+};
+
+/*
+ * some custom functions and variables
+ */
+
+Queue<std::string> queueOfStrings;
+
+void sendSomething(){
+
+	for (int i=0; i<10; i++){
+
+		queueOfStrings.enqueue("Cyris");
+
+	}
+
+}
+
+void recvSomething(){
+
+	std::string s;
+
+	for (int i=0; i<10; i++){
+
+		try{
+			s = queueOfStrings.dequeue();
+
+		}
+		catch {
+
+		}
+		}
+	}
+
+int main(){
+
+boost::thread myThr1(sendSomething);
+boost::thread myThr2(recvSomething);
+
+myThr1.join();
+myThr2.join();
+
+}

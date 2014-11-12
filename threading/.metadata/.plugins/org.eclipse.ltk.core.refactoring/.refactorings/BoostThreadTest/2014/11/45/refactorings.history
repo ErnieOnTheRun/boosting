@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;BoostThreadTest/ThreadSafeResource/src/BoostThreadTestCreate.cpp&apos; to &apos;ThreadSafeResourceAccess.cpp&apos;" description="Rename resource &apos;BoostThreadTestCreate.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ThreadSafeResource/src/BoostThreadTestCreate.cpp" name="ThreadSafeResourceAccess.cpp" stamp="1414995212523" updateReferences="true"/>
+</session>

@@ -1,0 +1,49 @@
+/*
+ * ThreadSafeResourceAccess.cpp
+ *
+ *  Created on: Nov 4, 2014
+ *      Author: ErnieOnTheRun
+ */
+
+#include <iostream>
+#include <string>
+
+#include <boost/thread/thread.hpp>
+
+template<typename T>
+	class Queue {
+
+	public:
+	Queue() {};
+	~Queue() {};
+/*
+ * add an element x to the queue
+ */
+	void enqueue (const T& x){
+
+		boost::mutex::scoped_lock(mutex_);
+		list_.push_back(x);
+	}
+
+	T dequeue (){
+
+		boost::mutex::scoped_lock(mutex_);
+
+
+	}
+
+
+	private:
+		std::list<T> list_;
+
+};
+
+int main(){
+
+boost::thread myThread(threadFun);
+
+boost::thread::yield();
+
+myThread.join();
+
+}

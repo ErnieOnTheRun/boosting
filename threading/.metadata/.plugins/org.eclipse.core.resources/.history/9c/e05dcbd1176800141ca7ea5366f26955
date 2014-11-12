@@ -1,0 +1,27 @@
+/*
+ * ThreadCommunication.cpp
+ *
+ *  Created on: Nov 9, 2014
+ *      Author: ErnieOnTheRun
+ */
+
+#include <iostream>
+#include <string>
+#include <list>
+
+#include <boost/thread/thread.hpp>
+#include <boost/thread/condition.hpp>
+#include <boost/thread/mutex.hpp>
+
+
+int main(){
+
+boost::thread thr1(boss);
+boost::thread thr2(workers);
+boost::thread thr3(worker);
+
+thr1.join();
+thr2.join();
+thr3.join();
+
+}

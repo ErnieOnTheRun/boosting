@@ -1,0 +1,36 @@
+/*
+ * ThreadSafeResourceAccess.cpp
+ *
+ *  Created on: Oct 13, 2014
+ *      Author: ErnieOnTheRun
+ */
+
+#include <iostream>
+#include <stdio.h>
+
+#include <boost/thread/thread.hpp>
+#include <boost/thread/xtime.hpp>
+
+struct MyThreadFunc {
+
+	void operator () (){
+
+		// counting
+		for (int i=0; i<1000000; i ++)
+
+			printf (i+ "/n");
+
+	}
+
+	;
+} threadFun;
+
+int main(){
+
+boost::thread myThread(threadFun);
+
+boost::thread::yield();
+
+myThread.join();
+
+}

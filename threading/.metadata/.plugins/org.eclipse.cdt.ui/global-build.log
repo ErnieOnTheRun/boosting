@@ -1,0 +1,4 @@
+g++ -O2 -g -Wall -fmessage-length=0  -o bin/ThreadSafeResourceAccess obj/ThreadSafeResourceAccess.o -lboost_thread -lboost_system
+
+01:39:29 Build Finished (took 11s.34ms)
+
